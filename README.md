@@ -1,0 +1,1 @@
+This is simply just a list of project's i attempted while learning java, i don't plan to refine any of them too much but maybe in the future I will. For now they stand as examples to anyone else interested in learning the language and to show my progression through learning.
