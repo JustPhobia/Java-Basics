@@ -41,7 +41,7 @@ public class NameList {
         return false;
     }
 
-    // Main program
+    // MainTrajectoryCalculator program
     public static void main(String[] args) {
         NameList list = new NameList();
         Scanner scanner = new Scanner(System.in);
