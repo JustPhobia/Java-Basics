@@ -3,8 +3,10 @@ package Module2.TaskManagerExercise;
 import java.util.Scanner;
 
 public class UtilClass {
-    private Scanner sc = new Scanner(System.in);
-
+    private Scanner sc;
+    public UtilClass(Scanner sc) {
+        this.sc = sc;
+    }
 
     public String getInputString(String regex) {
         String inputString;
@@ -20,7 +22,6 @@ public class UtilClass {
     }
 
     public char getInputChar() {
-
         char first;
         String choice;
         choice = getInputString("^[A-Za-z]$");
@@ -48,29 +49,45 @@ public class UtilClass {
         return first;
     }
 
+
     public int getIndexInt(int max) {
-        int choice = 0;
-        boolean error = false;
-        do {
-            if (error) {
-                System.out.println("Index range is between 1 and " + max);
+        int choice = -1;
+        boolean valid = false;
+
+        while (!valid) {
+            if (sc.hasNextInt()) {
+                choice = sc.nextInt();
+                if (choice >= 1 && choice <= max) {
+                    valid = true;
+                } else {
+                    System.out.println("Invalid input. Please enter a number between 1 and " + max + ".");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number between 1 and " + max + ".");
+                sc.next();
             }
-            choice = getInputInt();
-            error = true;
-        } while (choice > max || choice < 0);
+        }
+        return choice-1;
+    }
+
+
+    public int getInputInt(int min, int max) {
+        int choice = -1;
+        boolean valid = false;
+
+        while (!valid) {
+            if (sc.hasNextInt()) {
+                choice = sc.nextInt();
+                if (choice >= min && choice <= max) {
+                    valid = true;
+                } else {
+                    System.out.println("Invalid input. Please enter a number between 1 and " + max + ".");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number between 1 and " + max + ".");
+                sc.next();
+            }
+        }
         return choice;
-    }
-
-    public int getInputInt() {
-        int input = sc.nextInt();
-        sc.nextLine();
-        return input;
-    }
-
-    public double getInputDouble() {
-        double input = sc.nextDouble();
-        sc.nextLine();
-        return input;
-
     }
 }

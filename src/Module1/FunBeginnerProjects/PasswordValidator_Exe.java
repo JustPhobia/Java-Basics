@@ -3,7 +3,7 @@ package Module1.FunBeginnerProjects;
 import java.util.Scanner;
 
 public class PasswordValidator_Exe {
-    //Please note use of bad coding practice such as no run() method, all code is together, DRY principle not followed
+    //Please note use of bad coding practice such as no test() method, all code is together, DRY principle not followed
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean uAgain = true,uID10T = true, uLength=false, uSpecChar=false, uNum=false, uCase=false, uCorrect=false, uIncorrect;
