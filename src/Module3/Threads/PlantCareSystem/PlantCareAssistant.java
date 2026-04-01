@@ -23,9 +23,9 @@ public class PlantCareAssistant{
 
         String name;
         String plantType;
-        Integer waterIncrement;
-        Integer sunlightIncrement;
-        Boolean running = true;
+        int waterIncrement;
+        int sunlightIncrement;
+        boolean running = true;
 
         try {
             while (running) {
