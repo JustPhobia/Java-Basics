@@ -3,7 +3,7 @@ package Module3.InputOutput.Exercises.Exercise_1;
 import java.io.File;
 import java.util.Scanner;
 
-//User inputs a path and sees whther it is a directory or file.
+//User inputs a path and sees whether it is a directory or file.
 public class DirOrFile {
     public void run(){
         boolean run = true;
