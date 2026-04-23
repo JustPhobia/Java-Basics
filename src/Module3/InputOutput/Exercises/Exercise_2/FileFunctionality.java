@@ -9,7 +9,7 @@ public class FileFunctionality {
         Scanner sc = new Scanner(System.in);
         File file;
         String filePath;
-        Boolean run = true;
+        boolean run = true;
         while (run) {
             System.out.println("""
                     ---------------------------
@@ -25,7 +25,7 @@ public class FileFunctionality {
                 case "1":
                     System.out.println("Please input the path of the file you wish to use: ");
                     filePath = sc.nextLine();
-                    if ((file = readFile(sc, filePath)) != null) {
+                    if ((file = readFile(filePath)) != null) {
                         System.out.println("Successfully read " + file.getName());
                         break;
                     } else {
@@ -36,7 +36,7 @@ public class FileFunctionality {
                     filePath = sc.nextLine();
                     if ((file = writeToFile(sc, filePath)) != null) {
                         System.out.println("Successfully written to file" + file.getName());
-                        readFile(sc, filePath);
+                        readFile(filePath);
                         break;
                     } else {
                         System.out.println("An error occurred, please ensure your file path is correct.");
@@ -44,7 +44,11 @@ public class FileFunctionality {
                 case "3":
                     System.out.println("Please input the path of the file you wish to copy from: ");
                     filePath = sc.nextLine();
-                    copyFile(sc, filePath);
+                    File copiedFile;
+                    if ((copiedFile = copyFile(sc, filePath)) != null) {
+                        readFile(filePath);
+                        readFile(copiedFile.getAbsolutePath());
+                    }
                     break;
                 case "4":
                     System.out.println("Have a good day!");
@@ -52,7 +56,6 @@ public class FileFunctionality {
                     break;
                 default:
                     System.out.println("Invalid choice.");
-                    run  = false;
             }
         }
     }
@@ -99,7 +102,7 @@ public class FileFunctionality {
         return null;
     }
 
-    private File readFile(Scanner sc, String filePath){
+    private File readFile(String filePath){
         String line;
         File file = new File(filePath);
 
