@@ -106,8 +106,7 @@ public class FileFunctionality {
         String line;
         File file = new File(filePath);
 
-        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(filePath));
-        ) {
+        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(filePath))) {
             System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t==="+file.getName()+"===");
             System.out.println("-------------------------------------------------------");
             while ((line = reader.readLine()) != null){
